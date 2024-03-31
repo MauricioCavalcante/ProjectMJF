@@ -1,0 +1,280 @@
+
+/* estilo geral ------------------------------------------------- */
+
+*{
+    margin: 0;
+    padding: 0;     
+}
+
+.container-center{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container-box{
+    max-width: 800px;
+}
+
+.container-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+/* estilo pag inicial --------------------------------------------------------- */
+
+.container-topo{
+    margin: 0;
+    padding: 0;
+    height: 200px;
+    background-size: cover;
+    background-position: 50% 40%;
+    background-image: url('imagem-3.jpeg');
+}
+.imagem-topo-dark{
+    display: grid;
+    justify-content: center;
+    align-items: end;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button-span{
+    background: #9E6849;
+    color: white;
+    border-radius: 30px;
+    padding: 8px;
+    margin-bottom: 60px;
+}
+
+
+.imagem-inicio{
+    max-height: 350px;
+    border-radius: 5%;
+}
+
+.image-question{
+    max-width: 400px;
+}
+
+.faq-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.faq-item {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+}
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    padding: 5px;
+    border-left: 3px solid #686868;
+}
+.show-answer {
+    display: block;
+}
+
+.button-home{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    width: 350px;
+    background: #9E6849;
+    color: white;
+    border-radius: 30px;
+    padding: 8px;
+    margin-bottom: 60px;
+}
+
+.button-home:hover{
+    background: #794f37;
+    color: white;
+}
+
+
+/* estilo pag formulario --------------------------------------------- */
+
+.container-topo-form{
+    margin: 0;
+    padding: 0;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('imagem-1.jpeg');
+}
+
+.imagem-topo-dark-form{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.imagem-topo-form{
+    width: 100%;
+}
+
+.imagem-topo-logo-form{
+    opacity: 0; /* Inicialmente, o texto estará transparente */
+    animation: animar-logo 3s forwards, animar-opacidade 3s forwards;
+}
+
+
+.code-ddi{
+    background: transparent;
+    border: 1px solid grey;
+}
+
+p{
+    opacity: 0; /* Inicialmente, o texto estará transparente */
+    animation: animar-texto 2s forwards, animar-opacidade 2s forwards; /* Animação do texto e da opacidade */
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    opacity: 0; /* Inicialmente, o texto estará transparente */
+    animation: animar-texto 2s forwards, animar-opacidade 1s forwards; /* Animação do texto e da opacidade */
+}
+
+.text-area,.text-area:focus,.text-area::after,
+input[type="text"],input[type="text"]:hover,input[type="text"]:focus,input[type="text"]::after,
+input[type="email"],input[type="email"]:hover,input[type="email"]:focus,input[type="email"]::after,
+input[type="textarea"]
+{
+    background-color: transparent;
+    border: 2px solid grey;
+}
+
+.button-form{
+    font-size: small;
+    display: flex;
+    border: none;
+    justify-content: center;
+    text-decoration: none;
+    width: 250px;
+    background: #9E6849;
+    color: white;
+    border-radius: 30px;
+    padding: 8px;
+    margin-bottom: 60px;
+}
+
+.button-form:hover{
+    background: #794f37;
+    color: white;
+}
+
+.imagem-topo-form{
+    background-size: cover;
+    max-width: 800px;
+}
+
+
+/* configuração radio ------------------------------------------------------------------------- */
+.container-radio label {
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+}
+  
+.container-radio  label input {
+    position: absolute;
+    left: -9999px;
+}
+  
+.container-radio label input:checked {
+    background-color: gray;
+    color: white;
+}
+.container-radio label input:checked + span:before {
+    animation: animar-logo 0.3s forwards, animar-opacidade 0.3s forwards;
+    background-color: #9E6849; /* Cor de fundo quando marcado */
+    border: 1px solid #9E6849;
+}
+  
+.container-radio label span {
+    display: flex;
+    align-items: center;
+    border-radius: 99em;
+    transition: 0.25s ease;
+}
+  
+.container-radio label span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color:#ffffff;
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid grey;
+    border-radius: 50%;
+    margin-right: 0.375em;
+}
+
+
+/* configuração select ------------------------------------------------------------------------- */
+.select-input{
+    border: 2px solid grey;
+    color: rgb(34, 34, 34);
+    background-color: white;
+    border-radius: 15px;
+    padding-left: 5px;
+}
+.select-input::after{
+    border: 2px solid grey;
+    color: rgb(34, 34, 34);
+    background-color: white;
+    border-radius: 1px;
+    padding-left: 5px;
+}
+
+
+option{
+    color: rgb(34, 34, 34);
+    background-color: white;
+}
+
+/* amimacoes -------------------------------------------------------------------- */
+
+@keyframes animar-texto {
+    0% {
+        opacity: 0; /* Texto totalmente transparente */
+        transform: translateX(-15%); /* Move o texto para a esquerda fora da tela */
+    }
+    100% {
+        opacity: 1; /* Texto totalmente visível */
+        transform: translateX(0); /* Move o texto de volta para a posição original */
+    }
+}
+
+@keyframes animar-logo {
+    0% {
+        opacity: 0; /* Texto totalmente transparente */
+        
+    }
+    100% {
+        opacity: 1; /* Texto totalmente visível */
+        
+    }
+}
+
+
+.borda{
+    border: 5px solid red;
+}
+  
