@@ -39,7 +39,7 @@
     height: 200px;
     background-size: cover;
     background-position: 50% 40%;
-    background-image: url('imagem-3.jpeg');
+    background-image: url('./imagens/imagem-3.jpeg');
 }
 .imagem-topo-dark{
     display: grid;
@@ -102,6 +102,27 @@
 }
 
 
+.carousel{
+    max-width: 500px;
+}
+.carousel-prev{
+    left: -10%;
+}
+.carousel-next{
+    right: -10%;
+}
+.carousel-ind{
+    bottom: -40px;
+}
+
+.grid{
+    max-width: 1000px;
+}
+
+.grid-item{
+    border: 2px solid grey;
+}
+
 /* estilo pag formulario --------------------------------------------- */
 
 .container-topo-form{
@@ -110,7 +131,7 @@
     height: 150px;
     background-size: cover;
     background-position: center;
-    background-image: url('imagem-1.jpeg');
+    background-image: url('./imagens/imagem-1.jpeg');
 }
 
 .imagem-topo-dark-form{
@@ -272,9 +293,3 @@ option{
         
     }
 }
-
-
-.borda{
-    border: 5px solid red;
-}
-  
