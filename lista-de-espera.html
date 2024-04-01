@@ -115,6 +115,9 @@
           </div>
           <label for="textarea" id="textoUrgencia" style="display: none;"></label>
           <textarea class="text-area form-control mt-2" name="motivoUrgencia" placeholder="Escreva em poucas palavras o motivo." id="caixaTexto" style="display: none;"></textarea>
+          <div class="container-fluid container-center mt-4">
+            <div id="mensagem" style="display:none;"></div>
+          </div>
           <div class="container-center mt-4">
             <button type="submit" class="button-form" >ENTRAR NA LISTA DE ESPERA</button>
           </div>
@@ -123,30 +126,45 @@
     </div>
   </section>
 
-
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
-    document.getElementById('meuFormulario').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+    var enviado = false; // Variável para rastrear se o formulário já foi enviado
 
-    // Envia os dados do formulário para o Web App
-    fetch('https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec', {
-      method: 'POST',
-      body: new FormData(this)
-    }).then(response => {
-      if (response.ok) {
-        alert('Formulário enviado com sucesso!');
-        // Limpa o formulário após o envio bem-sucedido (opcional)
-        this.reset();
-      } else {
-        alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+    document.getElementById('meuFormulario').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio padrão do formulário
+
+      // Verifica se o formulário já foi enviado
+      if (enviado) {
+        return; // Sai da função se o formulário já foi enviado
       }
-    }).catch(error => {
-      console.error('Erro ao enviar o formulário:', error);
-      alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+
+      enviado = true; // Marca o formulário como enviado
+
+      // Mostra uma mensagem de envio
+      var mensagem = document.getElementById('mensagem');
+      mensagem.textContent = 'Enviando formulário...';
+      mensagem.style.display = 'block';
+
+      // Envia os dados do formulário para o Google Apps Script
+      var formData = new FormData(this);
+      fetch('https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec', {
+        method: 'POST',
+        body: formData
+      }).then(response => {
+        if (response.ok) {
+          mensagem.textContent = 'Formulário enviado com sucesso, obrigado!';
+        } else {
+          mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
+        }
+      }).catch(error => {
+        mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
+        console.error('Erro ao enviar o formulário:', error);
+      }).finally(() => {
+        enviado = false; // Reseta a variável enviado para permitir envios futuros
+        this.reset();
+      });
     });
-});
   </script>
 </body>
 </html>
