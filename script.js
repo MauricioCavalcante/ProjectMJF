@@ -701,25 +701,3 @@ radioNao.addEventListener('change', function() {
     }
 });
 
-// script FAQ -------------------------------------------------------------------------------------
-
-document.getElementById('meuFormulario').addEventListener('submit', function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
-
-    // Envia os dados do formulário para o Web App
-    fetch('https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec', {
-      method: 'POST',
-      body: new FormData(this)
-    }).then(response => {
-      if (response.ok) {
-        alert('Formulário enviado com sucesso!');
-        // Limpa o formulário após o envio bem-sucedido (opcional)
-        this.reset();
-      } else {
-        alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
-      }
-    }).catch(error => {
-      console.error('Erro ao enviar o formulário:', error);
-      alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
-    });
-});
