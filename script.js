@@ -707,7 +707,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     event.preventDefault(); // Impede o envio padrão do formulário
 
     // Envia os dados do formulário para o Web App
-    fetch('https://script.google.com/macros/s/AKfycbyOd17l_TIAy0a3Q4ANEEFpVeQHk9gpfySNp6fomMtZP_bYmTItyx43IxVV708Dhh9EJw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec', {
       method: 'POST',
       body: new FormData(this)
     }).then(response => {
