@@ -293,3 +293,9 @@ option{
         
     }
 }
+
+
+.borda{
+    border: 5px solid red;
+}
+  
