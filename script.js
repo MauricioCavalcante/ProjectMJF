@@ -701,3 +701,43 @@ radioNao.addEventListener('change', function() {
     }
 });
 
+
+var enviado = false; // Variável para rastrear se o formulário já foi enviado
+
+document.getElementById('meuFormulario').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Verifica se o formulário já foi enviado
+    if (enviado) {
+    return; // Sai da função se o formulário já foi enviado
+    }
+
+    enviado = true; // Marca o formulário como enviado
+
+    // Retira o formulário
+    var formulario = document.getElementById('meuFormulario')
+    formulario.style.display = 'none'
+    // Mostra uma mensagem de envio
+    var mensagem = document.getElementById('mensagem');
+    mensagem.textContent = 'Enviando formulário...';
+    mensagem.style.display = 'block';
+
+    // Envia os dados do formulário para o Google Apps Script
+    var formData = new FormData(this);
+    fetch('https://script.google.com/macros/s/AKfycbzHfX7XALGqfJT1BleX6wCH7b2nmrviak9PSiiwUzMfRRcz5LC_csLc01jREz5Zz-G4Iw/exec', {
+    method: 'POST',
+    body: formData
+    }).then(response => {
+    if (response.ok) {
+        mensagem.textContent = 'Formulário enviado com sucesso, obrigado!';
+    } else {
+        mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
+    }
+    }).catch(error => {
+    mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
+    console.error('Erro ao enviar o formulário:', error);
+    }).finally(() => {
+    enviado = false; // Reseta a variável enviado para permitir envios futuros
+    this.reset();
+    });
+});
