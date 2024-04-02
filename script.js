@@ -724,7 +724,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
     // Envia os dados do formulário para o Google Apps Script
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbzHfX7XALGqfJT1BleX6wCH7b2nmrviak9PSiiwUzMfRRcz5LC_csLc01jREz5Zz-G4Iw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec', {
     method: 'POST',
     body: formData
     }).then(response => {
