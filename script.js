@@ -701,7 +701,6 @@ radioNao.addEventListener('change', function() {
     }
 });
 
-
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 
 document.getElementById('meuFormulario').addEventListener('submit', function(event) {
@@ -709,7 +708,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
     // Verifica se o formulário já foi enviado
     if (enviado) {
-    return; // Sai da função se o formulário já foi enviado
+        return; // Sai da função se o formulário já foi enviado
     }
 
     enviado = true; // Marca o formulário como enviado
@@ -717,27 +716,53 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     // Retira o formulário
     var formulario = document.getElementById('meuFormulario')
     formulario.style.display = 'none'
+
     // Mostra uma mensagem de envio
     var mensagem = document.getElementById('mensagem');
+    var contagem = document.getElementById('linhaCount');
     mensagem.textContent = 'Enviando formulário...';
     mensagem.style.display = 'block';
+    contagem.style.display = 'block';
 
     // Envia os dados do formulário para o Google Apps Script
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec', {
-    method: 'POST',
-    body: formData
+    fetch('https://script.google.com/macros/s/AKfycbzsuMFsQFjwp25d6nuPM6wh0ENsKL9XEFSoUw79j7tcT0DXzooydLvGt-RVsAB6H1E/exec', {
+        method: 'POST',
+        body: formData
     }).then(response => {
-    if (response.ok) {
-        mensagem.textContent = 'Formulário enviado com sucesso, obrigado!';
-    } else {
-        mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
-    }
+        if (response.ok) {
+            mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
+            atualizarNumeroLinhas(); // Chama a função para atualizar o número de linhas
+        } else {
+            mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
+        }
     }).catch(error => {
-    mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
-    console.error('Erro ao enviar o formulário:', error);
+        mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
+        console.error('Erro ao enviar o formulário:', error);
     }).finally(() => {
-    enviado = false; // Reseta a variável enviado para permitir envios futuros
-    this.reset();
+        enviado = false; // Reseta a variável enviado para permitir envios futuros
+        formulario.style.display = 'none'; // Mostra o formulário novamente
+        mensagem.style.display = 'block'; // Esconde a mensagem após o envio
+        contagem.style.display = 'block';
+        this.reset(); // Limpa o formulário
     });
 });
+
+// Função para atualizar o número de linhas na planilha
+function atualizarNumeroLinhas() {
+    fetch('https://script.google.com/macros/s/AKfycbzsuMFsQFjwp25d6nuPM6wh0ENsKL9XEFSoUw79j7tcT0DXzooydLvGt-RVsAB6H1E/exec?rowCount=true')
+        .then(response => response.text())
+        .then(count => {
+            var contagem = document.getElementById('linhaCount');
+            contagem.textContent = `Número de linhas na planilha: ${count}`;
+        })
+        .catch(error => {
+            console.error('Erro ao obter número de linhas:', error);
+        });
+}
+
+// Adiciona um evento de click ao botão de submit
+document.getElementById('meuBotaoSubmit').addEventListener('click', function() {
+    atualizarNumeroLinhas(); // Chama a função para atualizar o número de linhas
+});
+
