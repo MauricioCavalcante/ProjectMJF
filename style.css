@@ -39,7 +39,7 @@
     height: 200px;
     background-size: cover;
     background-position: 50% 40%;
-    background-image: url('imagem-3.jpeg');
+    background-image: url('./imagens/imagem-3.jpeg');
 }
 .imagem-topo-dark{
     display: grid;
@@ -104,12 +104,15 @@
 
 .carousel{
     max-width: 500px;
+    display: flexbox;
 }
 .carousel-prev{
-    left: -10%;
+    width: 40px;
+    left: -20px;
 }
 .carousel-next{
-    right: -10%;
+    width: 40px;
+    right: -20px;
 }
 .carousel-ind{
     bottom: -40px;
@@ -131,7 +134,7 @@
     height: 150px;
     background-size: cover;
     background-position: center;
-    background-image: url('imagem-1.jpeg');
+    background-image: url('./imagens/imagem-1.jpeg');
 }
 
 .imagem-topo-dark-form{
