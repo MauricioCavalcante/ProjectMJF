@@ -718,15 +718,17 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     formulario.style.display = 'none';
 
     // Mostra uma mensagem de envio
+    var texto = document.getElementById('secaoMensagem')
     var mensagem = document.getElementById('mensagem');
     var contagem = document.getElementById('numeroLinhas');
     mensagem.textContent = 'Enviando formulário...';
     mensagem.style.display = 'block';
     contagem.style.display = 'none';
+    texto.style.display = 'none'
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbzyDuJ2eCRK62EUTeSHbC1rCYg7w19_5RLBbNsopbmnt78HF-WXYOSrF4tNF86iiIbl/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec', {
         method: 'POST',
         body: formData
     }).then(response => {
@@ -742,6 +744,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         console.error('Erro ao enviar o formulário:', error);
     }).finally(() => {
         enviado = false; // Reseta a variável enviado para permitir envios futuros
+        texto.style.display = 'none' //Esconde a mensagem geral
         formulario.style.display = 'none'; // Esconde o formulário novamente
         mensagem.style.display = 'block'; // Mostra a mensagem após o envio
         contagem.style.display = 'block';
@@ -751,7 +754,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
 // Função para atualizar o número de linhas na planilha
 function atualizarNumeroLinhas() {
-    fetch('https://script.google.com/macros/s/AKfycbzyDuJ2eCRK62EUTeSHbC1rCYg7w19_5RLBbNsopbmnt78HF-WXYOSrF4tNF86iiIbl/exec?rowCount=true')
+    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec?rowCount=true')
         .then(response => response.text())
         .then(count => {
             var contagem = document.getElementById('numeroLinhas');
