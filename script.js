@@ -714,25 +714,26 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     enviado = true; // Marca o formulário como enviado
 
     // Retira o formulário
-    var formulario = document.getElementById('meuFormulario')
-    formulario.style.display = 'none'
+    var formulario = document.getElementById('meuFormulario');
+    formulario.style.display = 'none';
 
     // Mostra uma mensagem de envio
     var mensagem = document.getElementById('mensagem');
-    var contagem = document.getElementById('linhaCount');
+    var contagem = document.getElementById('numeroLinhas');
     mensagem.textContent = 'Enviando formulário...';
     mensagem.style.display = 'block';
-    contagem.style.display = 'block';
+    contagem.style.display = 'none';
 
-    // Envia os dados do formulário para o Google Apps Script
+    // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbzsuMFsQFjwp25d6nuPM6wh0ENsKL9XEFSoUw79j7tcT0DXzooydLvGt-RVsAB6H1E/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzyDuJ2eCRK62EUTeSHbC1rCYg7w19_5RLBbNsopbmnt78HF-WXYOSrF4tNF86iiIbl/exec', {
         method: 'POST',
         body: formData
     }).then(response => {
         if (response.ok) {
             mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
-            atualizarNumeroLinhas(); // Chama a função para atualizar o número de linhas
+            // Após o envio bem-sucedido, atualiza o número de linhas
+            atualizarNumeroLinhas();
         } else {
             mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
         }
@@ -741,8 +742,8 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         console.error('Erro ao enviar o formulário:', error);
     }).finally(() => {
         enviado = false; // Reseta a variável enviado para permitir envios futuros
-        formulario.style.display = 'none'; // Mostra o formulário novamente
-        mensagem.style.display = 'block'; // Esconde a mensagem após o envio
+        formulario.style.display = 'none'; // Esconde o formulário novamente
+        mensagem.style.display = 'block'; // Mostra a mensagem após o envio
         contagem.style.display = 'block';
         this.reset(); // Limpa o formulário
     });
@@ -750,19 +751,14 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
 // Função para atualizar o número de linhas na planilha
 function atualizarNumeroLinhas() {
-    fetch('https://script.google.com/macros/s/AKfycbzsuMFsQFjwp25d6nuPM6wh0ENsKL9XEFSoUw79j7tcT0DXzooydLvGt-RVsAB6H1E/exec?rowCount=true')
+    fetch('https://script.google.com/macros/s/AKfycbzyDuJ2eCRK62EUTeSHbC1rCYg7w19_5RLBbNsopbmnt78HF-WXYOSrF4tNF86iiIbl/exec?rowCount=true')
         .then(response => response.text())
         .then(count => {
-            var contagem = document.getElementById('linhaCount');
-            contagem.textContent = `Número de linhas na planilha: ${count}`;
+            var contagem = document.getElementById('numeroLinhas');
+            contagem.textContent = `Total de formulários enviados até o momento: ${count}`;
+            contagem.style.display = 'block'; // Mostra a contagem após a atualização
         })
         .catch(error => {
             console.error('Erro ao obter número de linhas:', error);
         });
 }
-
-// Adiciona um evento de click ao botão de submit
-document.getElementById('meuBotaoSubmit').addEventListener('click', function() {
-    atualizarNumeroLinhas(); // Chama a função para atualizar o número de linhas
-});
-
