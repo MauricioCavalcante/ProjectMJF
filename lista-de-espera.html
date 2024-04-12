@@ -34,7 +34,7 @@
   <section class="container-fluid container-center p-4">
     <div class="form-area">
       
-      <form id="meuFormulario" action="https://script.google.com/macros/s/AKfycbyHGsdXNpPTQ3sTbbn0mpvNKGgyqJvehe3of2J2mNhyQzFY72cm188aP_ZzdR_ayQOT/exec" method="post">
+      <form id="meuFormulario" action="https://script.google.com/macros/s/AKfycbzyDuJ2eCRK62EUTeSHbC1rCYg7w19_5RLBbNsopbmnt78HF-WXYOSrF4tNF86iiIbl/exec" method="post">
         
         <div class="form-floating mb-3">
           <input type="text" name="nome" class="form-control" id="floatingName" placeholder="Nome">
@@ -117,7 +117,7 @@
           <textarea class="text-area form-control mt-2" name="motivoUrgencia" placeholder="Escreva em poucas palavras o motivo." id="caixaTexto" style="display: none;"></textarea>
           
           <div class="container-center mt-4">
-            <button type="submit" id="meuBotaoSubmit" class="button-form mb-0" >ENTRAR NA LISTA DE ESPERA</button>
+            <button type="submit" onclick="enviarFormulario()" class="button-form mb-0">ENTRAR NA LISTA DE ESPERA</button>
           </div>
       </form>
 
@@ -126,13 +126,15 @@
   <section class="container-fluid container-center p-4">
     <div class="container-fluid container-center mt-4">
       <div id="mensagem" style="display:none;"></div>
-      <div id="linhaCount" style="display: none;"></div>
     </div>
+  </section>
+  <section  class="container-fluid container-center">
+    <div class="total-form" id="numeroLinhas" style="display: none;"></div>
   </section>
 
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+  
 </body>
 </html>
 

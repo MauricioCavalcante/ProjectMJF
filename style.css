@@ -297,6 +297,12 @@ option{
     }
 }
 
+.total-form{
+    border: 2px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: large;
+}
 
 .borda{
     border: 5px solid red;
