@@ -644,7 +644,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Carrega o arquivo CSV com os códigos e formatos dos países
-    fetch('DDIs.csv')
+    fetch('arquivos/DDIs.csv')
         .then(response => response.text())
         .then(text => {
             // Divide o texto do CSV em linhas e remove o cabeçalho
@@ -714,26 +714,29 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     enviado = true; // Marca o formulário como enviado
 
     // Retira o formulário
-    var formulario = document.getElementById('meuFormulario');
+    var formulario = document.getElementById('secaoFormulario');
+    var texto = document.getElementById('secaoMensagem');
+    texto.style.display = 'none';
     formulario.style.display = 'none';
 
     // Mostra uma mensagem de envio
-    var texto = document.getElementById('secaoMensagem')
     var mensagem = document.getElementById('mensagem');
     var contagem = document.getElementById('numeroLinhas');
+    var video = document.getElementById('videoFinal');
+    var textoFinal = document.getElementById('mensagemFinal')
     mensagem.textContent = 'Enviando formulário...';
     mensagem.style.display = 'block';
     contagem.style.display = 'none';
-    texto.style.display = 'none'
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbz7tiM3Kl5kQKVgVDw7wX_wAfy85VZIXI5I36hVgoSqRFWf3ewQNU3aQU4Xofd4DBgoDg/exec', {
         method: 'POST',
         body: formData
     }).then(response => {
         if (response.ok) {
             mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
+            textoFinal.textContent = 'Não esquece de ver esse vídeo que preparei para você.';
             // Após o envio bem-sucedido, atualiza o número de linhas
             atualizarNumeroLinhas();
         } else {
@@ -748,13 +751,15 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         formulario.style.display = 'none'; // Esconde o formulário novamente
         mensagem.style.display = 'block'; // Mostra a mensagem após o envio
         contagem.style.display = 'block';
+        textoFinal.style.display = 'block';
+        video.style.display = 'block';
         this.reset(); // Limpa o formulário
     });
 });
 
 // Função para atualizar o número de linhas na planilha
 function atualizarNumeroLinhas() {
-    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec?rowCount=true')
+    fetch('https://script.google.com/macros/s/AKfycbz7tiM3Kl5kQKVgVDw7wX_wAfy85VZIXI5I36hVgoSqRFWf3ewQNU3aQU4Xofd4DBgoDg/exec?rowCount=true')
         .then(response => response.text())
         .then(count => {
             var contagem = document.getElementById('numeroLinhas');
