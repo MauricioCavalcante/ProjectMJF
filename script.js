@@ -730,7 +730,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbz7tiM3Kl5kQKVgVDw7wX_wAfy85VZIXI5I36hVgoSqRFWf3ewQNU3aQU4Xofd4DBgoDg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec', {
         method: 'POST',
         body: formData
     }).then(response => {
@@ -759,7 +759,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
 // Função para atualizar o número de linhas na planilha
 function atualizarNumeroLinhas() {
-    fetch('https://script.google.com/macros/s/AKfycbz7tiM3Kl5kQKVgVDw7wX_wAfy85VZIXI5I36hVgoSqRFWf3ewQNU3aQU4Xofd4DBgoDg/exec?rowCount=true')
+    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec?rowCount=true')
         .then(response => response.text())
         .then(count => {
             var contagem = document.getElementById('numeroLinhas');
