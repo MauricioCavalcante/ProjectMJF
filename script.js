@@ -714,19 +714,17 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     enviado = true; // Marca o formulário como enviado
 
     // Retira o formulário
-    var formulario = document.getElementById('secaoFormulario');
-    var texto = document.getElementById('secaoMensagem');
-    texto.style.display = 'none';
-    formulario.style.display = 'none';
+    var principal = document.getElementById('principal');
+    var final = document.getElementById('final');
+    principal.style.display = 'none';
+    final.style.display = 'block';
 
     // Mostra uma mensagem de envio
+    
     var mensagem = document.getElementById('mensagem');
     var contagem = document.getElementById('numeroLinhas');
-    var video = document.getElementById('videoFinal');
-    var textoFinal = document.getElementById('mensagemFinal')
     mensagem.textContent = 'Enviando formulário...';
-    mensagem.style.display = 'block';
-    contagem.style.display = 'none';
+    contagem.style.display = 'block';
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
@@ -736,7 +734,6 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     }).then(response => {
         if (response.ok) {
             mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
-            textoFinal.textContent = 'Não esquece de ver esse vídeo que preparei para você.';
             // Após o envio bem-sucedido, atualiza o número de linhas
             atualizarNumeroLinhas();
         } else {
@@ -746,13 +743,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
         console.error('Erro ao enviar o formulário:', error);
     }).finally(() => {
-        enviado = false; // Reseta a variável enviado para permitir envios futuros
-        texto.style.display = 'none' //Esconde a mensagem geral
-        formulario.style.display = 'none'; // Esconde o formulário novamente
-        mensagem.style.display = 'block'; // Mostra a mensagem após o envio
-        contagem.style.display = 'block';
-        textoFinal.style.display = 'block';
-        video.style.display = 'block';
+        enviado = false; // Reseta a variável enviado para permitir envios futuros        
         this.reset(); // Limpa o formulário
     });
 });
@@ -764,7 +755,6 @@ function atualizarNumeroLinhas() {
         .then(count => {
             var contagem = document.getElementById('numeroLinhas');
             contagem.textContent = `Total de formulários enviados até o momento: ${count}`;
-            contagem.style.display = 'block'; // Mostra a contagem após a atualização
         })
         .catch(error => {
             console.error('Erro ao obter número de linhas:', error);

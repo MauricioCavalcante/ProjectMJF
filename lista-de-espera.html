@@ -18,113 +18,116 @@
   </section>
 
    <!-- seçao texto ------------------------------------------------------->
-  <section id="secaoMensagem" class="container-fluid container-center container-box mt-1"> 
-    <p>
-      Se você chegou até aqui, isso significa que você tem interesse em uma consulta! Como nosso whatsapp é muito congestionado, trabalhamos com uma lista de espera pra que possamos chamar vocês pela ordem de envio.
-    <br><br>
-    <strong>Ao ser chamada, você será contatada via Whatsapp (final 5672) pela Mari (minha secretária)!</strong>
-    <br><br>
-      Não esqueça de preencher os seus dados corretamente, porque precisamos deles para realizar o contato, ok? ❤️
-    <br><br>
-      Maju Ferreira <br> Médica <br> CRM-DF 31351
-    </p>
-  </section>
 
+  <main id="principal">
+    <section class="container-fluid container-box mt-1"> 
+      <p>
+        Se você chegou até aqui, isso significa que você tem interesse em uma consulta! Como nosso whatsapp é muito congestionado, trabalhamos com uma lista de espera pra que possamos chamar vocês pela ordem de envio.
+      <br><br>
+      <strong>Ao ser chamada, você será contatada via Whatsapp (final 5672) pela Mari (minha secretária)!</strong>
+      <br><br>
+        Não esqueça de preencher os seus dados corretamente, porque precisamos deles para realizar o contato, ok? ❤️
+      <br><br>
+        Maju Ferreira <br> Médica <br> CRM-DF 31351
+      </p>
+    </section>
 
-  <section id="secaoFormulario" class="container-fluid container-center p-4">
-    <form id="meuFormulario" action="https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec" method="post">
-      
-      <div class="form-floating mb-3">
-        <input type="text" name="nome" class="form-control" id="floatingName" placeholder="Nome">
-        <label for="floatingName" class="form-label">Nome</label>
-      </div>
-
-      <div class="form-floating mb-3">
-        <input type="text" name="sobrenome" class="form-control" id="floatingLname" placeholder="Sobrenome">
-        <label for="floatingName" class="form-label">Sobrenome</label>
-      </div>
-
-      <div class="form-floating mb-3">
-        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-        <label for="floatingInput">Email*</label>
-      </div>
-      <div class="mb-3">
-        <label for="country">Selecione o país:</label>
-        <select id="country" name="pais" class="select-input">
-          <!-- Opções de países serão carregadas dinamicamente aqui -->
-        </select>
-      </div>
-      <div>
-        <label for="floatingWpp">Whatsapp:*</label><br>
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text code-ddi" id="basic-addon1"><span id="ddi">+55</span></span>
-        <input type="text" name="telefone" class="form-control" id="floatingWpp" aria-label="Username" aria-describedby="basic-addon1" required>
-      </div>
-      <div>
-        <label for="type">Você deseja:*</label><br>        
-        <div class="container-radio p-2">
-          <label class="mt-1 mb-1">
-            <input type="radio" name="tipoConsulta" value="Online" class="radio-input" required>
-            <span>Consulta on-line</span>
-          </label>
-          <label class="mt-1 mb-1">
-            <input type="radio" name="tipoConsulta" value="Presencial" class="radio-input" required>
-            <span>Consulta presencialmente (Brasília)</span>
-          </label>
-        </div>
-      </div>
-      <div class="mt-4">
-        <label for="type">Qual o motivo principal do atendimento?*</label><br>
-        <div class="container-radio p-2">
-            <label class="mt-1 mb-1">
-              <input type="radio" name="motivoAtendimento" value="Contracepção" class="radio-input"  required>
-              <span>Contracepção</span>
-            </label>
-            <label class="mt-1 mb-1">
-              <input type="radio" name="motivoAtendimento" value="Tirar dúvidas" class="radio-input" required>
-              <span>Tirar dúvidas</span>
-            </label>
-            <label class="mt-1 mb-1">
-              <input type="radio" name="motivoAtendimento" value="Colocar DIU/implanon" class="radio-input" required>
-              <span>Colocar DIU/implanon</span>
-            </label>
-            <label class="mt-1 mb-1">
-              <input type="radio" name="motivoAtendimento" value="Exames de rotina" class="radio-input" required>
-              <span>Exames de rotina</span>
-            </label>
-            <label class="mt-1 mb-1">
-              <input type="radio" name="motivoAtendimento" value="Outro" class="radio-input" required>
-              <span>Outro</span>
-            </label>
-        </div>
-      </div>
-      <div class="mt-4">
-        <label for="type">Você precisa de um encaixe com URGÊNCIA? </label><br>
-        <div class="container-radio p-2">
-            <label class="mt-1 mb-1">
-              <input type="radio" id="opcaoSim" name="urgente" value="Sim" class="radio-input" required>
-              <span>Sim</span>
-            </label>
-            <label class="mt-1 mb-1">
-              <input type="radio" id="opcaoNao" name="urgente" value="Não" class="radio-input" required>
-              <span>Não</span>
-            </label>
-        </div>
-        <label for="textarea" id="textoUrgencia" style="display: none;"></label>
-        <textarea class="text-area form-control mt-2" name="motivoUrgencia" placeholder="Escreva em poucas palavras o motivo." id="caixaTexto" style="display: none;"></textarea>
+    <section class="container-fluid container-form p-4">
+      <form id="meuFormulario" action="https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec" method="post">
         
-        <div class="container-center mt-4">
-          <button type="submit" class="button-form mb-0">ENTRAR NA LISTA DE ESPERA</button>
+        <div class="form-floating mb-3">
+          <input type="text" name="nome" class="form-control" id="floatingName" placeholder="Nome">
+          <label for="floatingName" class="form-label">Nome</label>
         </div>
-    </form>
-  </section>
 
-  <section class="container-fluid container-center p-4">
-    <div class="container-center text-center m-2 " id="mensagem" style="display: none;"></div>
-    <div class="container-center text-center total-form" id="numeroLinhas" style="display: none;"></div>
-    <div class="container-center text-center mt-4" id="mensagemFinal" style="display: none;"></div>
-    <div class="container-center text-center mt-2" id="videoFinal" style="display: none;"><video src="arquivos/Vídeo-MJ.mp4" controls></video></div>
+        <div class="form-floating mb-3">
+          <input type="text" name="sobrenome" class="form-control" id="floatingLname" placeholder="Sobrenome">
+          <label for="floatingName" class="form-label">Sobrenome</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+          <label for="floatingInput">Email*</label>
+        </div>
+        <div class="mb-3">
+          <label for="country">Selecione o país:</label>
+          <select id="country" name="pais" class="select-input">
+            <!-- Opções de países serão carregadas dinamicamente aqui -->
+          </select>
+        </div>
+        <div>
+          <label for="floatingWpp">Whatsapp:*</label><br>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text code-ddi" id="basic-addon1"><span id="ddi">+55</span></span>
+          <input type="text" name="telefone" class="form-control" id="floatingWpp" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>
+        <div>
+          <label for="type">Você deseja:*</label><br>        
+          <div class="container-radio p-2">
+            <label class="mt-1 mb-1">
+              <input type="radio" name="tipoConsulta" value="Online" class="radio-input" required>
+              <span>Consulta on-line</span>
+            </label>
+            <label class="mt-1 mb-1">
+              <input type="radio" name="tipoConsulta" value="Presencial" class="radio-input" required>
+              <span>Consulta presencialmente (Brasília)</span>
+            </label>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="type">Qual o motivo principal do atendimento?*</label><br>
+          <div class="container-radio p-2">
+              <label class="mt-1 mb-1">
+                <input type="radio" name="motivoAtendimento" value="Contracepção" class="radio-input"  required>
+                <span>Contracepção</span>
+              </label>
+              <label class="mt-1 mb-1">
+                <input type="radio" name="motivoAtendimento" value="Tirar dúvidas" class="radio-input" required>
+                <span>Tirar dúvidas</span>
+              </label>
+              <label class="mt-1 mb-1">
+                <input type="radio" name="motivoAtendimento" value="Colocar DIU/implanon" class="radio-input" required>
+                <span>Colocar DIU/implanon</span>
+              </label>
+              <label class="mt-1 mb-1">
+                <input type="radio" name="motivoAtendimento" value="Exames de rotina" class="radio-input" required>
+                <span>Exames de rotina</span>
+              </label>
+              <label class="mt-1 mb-1">
+                <input type="radio" name="motivoAtendimento" value="Outro" class="radio-input" required>
+                <span>Outro</span>
+              </label>
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="type">Você precisa de um encaixe com URGÊNCIA? </label><br>
+          <div class="container-radio p-2">
+              <label class="mt-1 mb-1">
+                <input type="radio" id="opcaoSim" name="urgente" value="Sim" class="radio-input" required>
+                <span>Sim</span>
+              </label>
+              <label class="mt-1 mb-1">
+                <input type="radio" id="opcaoNao" name="urgente" value="Não" class="radio-input" required>
+                <span>Não</span>
+              </label>
+          </div>
+          <label for="textarea" id="textoUrgencia" style="display: none;"></label>
+          <textarea class="text-area form-control mt-2" name="motivoUrgencia" placeholder="Escreva em poucas palavras o motivo." id="caixaTexto" style="display: none;"></textarea>
+          
+          <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="button-form mb-0">ENTRAR NA LISTA DE ESPERA</button>
+          </div>
+      </form>
+    </section>
+  </main>
+  
+
+  <section class="container-fluid text-center p-4" id="final" style="display: none;">
+    <div class="m-2" id="mensagem"></div>
+    <div class="total-form" id="numeroLinhas" ></div>
+    <div class="mt-4"><p>Não esquece de ver esse vídeo que preparei para você.</p></div>
+    <div class="mt-2"><video src="arquivos/video-MJ.mp4" controls></video></div>
   </section>
 
   <script src="script.js"></script>
