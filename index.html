@@ -9,12 +9,8 @@
 </head>
 <body>
 <!-- seçao topo ------------------------------------------------------->
-<section class="container-topo mb-2"> <!-- seçao topo ------------------------------------------------------->
-  <div class="imagem-topo-dark">
-    <div class="imagem-topo-logo-form">
-      <img src="./imagens/logo-white.png" class="imagem-topo-form" alt="logo-maju">
-    </div>
-  </div>
+<section class="d-flex justify-content-center align-items-end container-topo mb-2"> <!-- seçao topo ------------------------------------------------------->
+  <img src="./imagens/logo-white.png" alt="logo-maju">
 </section>
 
 <!-- seçao apresentacao ------------------------------------------------------->
@@ -38,51 +34,51 @@
     </div>
   </section>
 
-  <section class="container-fluid mb-3 ">
-    <div class=" container-button">
-      <a type="button" class="button-home" role="button" href="lista-de-espera.html"><strong>Entrar na lista de espera</strong></a>
-    </div>
+  <section class="container-fluid d-flex justify-content-center mb-4">
+    <a type="button" class="button-home" role="button" href="lista-de-espera.html"><strong>Entrar na lista de espera</strong></a>
   </section>
 
   <section class="container-fluid container-box"> <!-- secao FAQ ------------------------------------------------------->
     <h4 class="p-3">FAQ: PERGUNTAS FREQUENTES</h4>
-    <div class="faq-item">
-      <div class="faq-question"><strong>1 - Maju, você trabalha com plano de saúde?</strong></div>
-      <div class="faq-answer">Não trabalhamos com consultas pelo plano, mas, para os planos que trabalham com reembolso, 
-        emitimos a nota fiscal normalmente para que você entre com o pedido para reembolsar!</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><strong>2 - Como funciona a consulta online?</strong></div>
-      <div class="faq-answer">Toda a anamnese (entrevista médica) é feita normalmente e, caso precise de exames complementares, 
+    <details class="p-2 mb-2">
+      <summary><strong>1 - Maju, você trabalha com plano de saúde?</strong></summary>
+      <p>Não trabalhamos com consultas pelo plano, mas, para os planos que trabalham com reembolso, 
+        emitimos a nota fiscal normalmente para que você entre com o pedido para reembolsar!</p>
+    </details>
+    <details class="p-2 mb-2">
+      <summary><strong>2 - Como funciona a consulta online?</strong></summary>
+      <p>Toda a anamnese (entrevista médica) é feita normalmente e, caso precise de exames complementares, 
         eles são solicitados normalmente com receituário eletrônico. <br><br>
         As receitas são enviadas via e-mail para o paciente, também com assinatura digital. 
-        Você pode ver mais sobre como as consultas funcionam no destaque do meu instagram: “consultas”!
-      </div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><strong>3 - Onde são os atendimentos presenciais?</strong></div>
-      <div class="faq-answer">No consultório Ilitia, no Edifício Multiclinicas, asa norte, Brasília.</div>
-    </div>
-  
-    <div class="faq-item">
-      <div class="faq-question"><strong>4 - Como vão entrar em contato comigo?</strong></div>
-      <div class="faq-answer">Quando você for ser chamada, a Mari (nossa secretária maravilha) irá te chamar pelo nosso whatsapp de marcações!</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question"><strong>5 - Você é especialista?</strong></div>
-      <div class="faq-answer">Não. Sou médica generalista, inscrita no CRM-DF 31351 e escolhi atuar, principalmente, com saúde da mulher. 
-        Você pode ter acesso a informações mais específicas sobre este assunto nos meus destaques do instagram: “consultas” e “medicina”! ❤️</div>
-    </div>
+        Você pode ver mais sobre como as consultas funcionam no destaque do meu instagram: “consultas”!</p>
+    </details>
+    <details class="p-2 mb-2">
+      <summary><strong>3 - Onde são os atendimentos presenciais?</strong></summary>
+      <p>No consultório Ilitia, no Edifício Multiclinicas, asa norte, Brasília.</p>
+    </details>
+    <details class="p-2 mb-2">
+      <summary><strong>4 - Como vão entrar em contato comigo?</strong></summary>
+      <p>Quando você for ser chamada, a Mari (nossa secretária maravilha) irá te chamar pelo nosso whatsapp de marcações!</p>
+    </details>
+    <details class="p-2 mb-2">
+      <summary><strong>5 - Você é especialista?</strong></summary>
+      <p>Não. Sou médica generalista, inscrita no CRM-DF 31351 e escolhi atuar, principalmente, com saúde da mulher. 
+        Você pode ter acesso a informações mais específicas sobre este assunto nos meus destaques do instagram: “consultas” e “medicina”! ❤️</p>
+    </details>
   </section>
-  <section class="container-fluid container-center">
-    <h4 class="p-3">Clique aqui para entrar na lista de espera para consultas on-line ou presencial:</h4>
-    <div class="container-button mt-4">
+
+  <section class="container-fluid mb-3">
+    <div class="text-center">
+      <h4 class="p-3">Clique aqui para entrar na lista de espera para consultas on-line ou presencial:</h4>
+    </div>
+    <div class="d-flex justify-content-center">
       <a type="button" class="button-home" role="button" href="lista-de-espera.html"><strong>Entrar na lista de espera</strong></a>
     </div>
   </section >
-  <section class="container-fluid carousel mb-5 p-4">
-    <h4 class="p-3">DEPOIMENTOS</h4>
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+  <section class="container-fluid carousel p-4">
+    <h4 class="mb-3 text-center">DEPOIMENTOS</h4>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide d-flex align-items-center" data-bs-ride="carousel">
       <div class="carousel-indicators carousel-ind">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -93,7 +89,7 @@
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 7"></button>
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 8"></button>
       </div>
-      <div class="carousel-inner container-fluid">
+      <div class="carousel-inner container-fluid  d-flex align-items-center">
         <div class="carousel-item active" data-bs-interval="5000">
           <img src="./imagens/relato-1.jpeg" class="img-fluid grid-item" alt="depoimento">
         </div>
@@ -131,21 +127,8 @@
     </div>
   </section>
 
+
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-
-      question.addEventListener('click', () => {
-        answer.classList.toggle('show-answer');
-      });
-    });
-  });
-  </script>
 </body>
 </html>

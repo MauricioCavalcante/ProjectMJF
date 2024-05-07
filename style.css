@@ -1,87 +1,54 @@
-
-/* estilo geral ------------------------------------------------- */
-
 *{
     margin: 0;
     padding: 0;     
 }
 
-.container-center{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.container-box{
-    max-width: 800px;
-}
-
-
-.container-apresentacao{
-    position: relative;
-    left: -100px;
-}
-
-.container-button{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-}
-
-
 /* estilo pag inicial --------------------------------------------------------- */
 
+
 .container-topo{
-    margin: 0;
-    padding: 0;
+
     height: 200px;
     background-size: cover;
     background-position: 50% 40%;
     background-image: url('./imagens/imagem-3.jpeg');
-}
-.imagem-topo-dark{
-    display: grid;
-    justify-content: center;
-    align-items: end;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
+    filter: brightness(90%);
+
+    & img{
+        opacity: 0; /* Inicialmente, o texto estará transparente */
+        animation: animar-logo 3s forwards, animar-opacidade 3s forwards;
+        background-size: cover;
+        max-width: 800px;
+        width: 100%;
+    }
 }
 
-.button-span{
-    background: #9E6849;
-    color: white;
-    border-radius: 30px;
-    padding: 8px;
-    margin-bottom: 60px;
+.container-box{
+    max-width: 800px;
+    opacity: 0; /* Inicialmente, o texto estará transparente */
+    animation: animar-texto 2s forwards, animar-opacidade 2s forwards; /* Animação do texto e da opacidade */
+    
+    & h1{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 }
+
 
 .imagem-logo{
     max-height: 150px;
 }
 
-.faq-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-.faq-item {
-    margin-bottom: 10px;
+details{
     border: 1px solid #ccc;
-    padding: 10px;
-    cursor: pointer;
+
+    & p{
+        border-left: 3px solid gray;
+        padding: 5px;
+    }
+    
 }
-.faq-answer {
-    display: none;
-    margin-top: 10px;
-    padding: 5px;
-    border-left: 3px solid #686868;
-}
-.show-answer {
-    display: block;
+details::after{
+    transition: all 3s;
 }
 
 .button-home{
@@ -93,7 +60,6 @@
     color: white;
     border-radius: 30px;
     padding: 8px;
-    margin-bottom: 60px;
 }
 
 .button-home:hover{
@@ -101,36 +67,38 @@
     color: white;
 }
 
-
 .carousel{
     max-width: 500px;
     display: flexbox;
-}
-.carousel-prev{
+    height: 440px;
+
+    & .carousel-prev{
     width: 40px;
     left: -20px;
-}
-.carousel-next{
+    }
+
+    & .carousel-next{
     width: 40px;
     right: -20px;
-}
-.carousel-ind{
-    bottom: -40px;
+    }
+    & .carousel-ind{
+        bottom: -40px;
+    }
+
+    & .grid{
+        max-width: 1000px;
+    }
+
+    & .grid-item{
+        border: 2px solid #52504f;
+    }
 }
 
-.grid{
-    max-width: 1000px;
-}
 
-.grid-item{
-    border: 2px solid grey;
-}
 
 /* estilo pag formulario --------------------------------------------- */
 
 .container-topo-form{
-    margin: 0;
-    padding: 0;
     height: 150px;
     background-size: cover;
     background-position: center;
@@ -141,8 +109,6 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -156,50 +122,45 @@
     animation: animar-logo 3s forwards, animar-opacidade 3s forwards;
 }
 
+.container-form{
+    max-width: 450px;
 
-.code-ddi{
-    background: transparent;
-    border: 1px solid grey;
+    & .code-ddi{
+        background: transparent;
+        border: 1px solid grey;
+    }
+
+    & .text-area,.text-area:focus,.text-area::after,
+    input[type="text"],input[type="text"]:hover,input[type="text"]:focus,input[type="text"]::after,
+    input[type="email"],input[type="email"]:hover,input[type="email"]:focus,input[type="email"]::after,
+    input[type="textarea"]
+    {
+        background-color: transparent;
+        border: 2px solid grey;
+    }
+    & .button-form{
+        font-size: small;
+        display: flex;
+        border: none;
+        justify-content: center;
+        text-decoration: none;
+        width: 250px;
+        background: #9E6849;
+        color: white;
+        border-radius: 30px;
+        padding: 8px;
+        margin-bottom: 60px;
+    }
+
+    & .button-form:hover{
+        background: #794f37;
+        color: white;
+    }
+
 }
 
-p{
-    opacity: 0; /* Inicialmente, o texto estará transparente */
-    animation: animar-texto 2s forwards, animar-opacidade 2s forwards; /* Animação do texto e da opacidade */
-}
 
-h1{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    opacity: 0; /* Inicialmente, o texto estará transparente */
-    animation: animar-texto 2s forwards, animar-opacidade 1s forwards; /* Animação do texto e da opacidade */
-}
 
-.text-area,.text-area:focus,.text-area::after,
-input[type="text"],input[type="text"]:hover,input[type="text"]:focus,input[type="text"]::after,
-input[type="email"],input[type="email"]:hover,input[type="email"]:focus,input[type="email"]::after,
-input[type="textarea"]
-{
-    background-color: transparent;
-    border: 2px solid grey;
-}
-
-.button-form{
-    font-size: small;
-    display: flex;
-    border: none;
-    justify-content: center;
-    text-decoration: none;
-    width: 250px;
-    background: #9E6849;
-    color: white;
-    border-radius: 30px;
-    padding: 8px;
-    margin-bottom: 60px;
-}
-
-.button-form:hover{
-    background: #794f37;
-    color: white;
-}
 
 .imagem-topo-form{
     background-size: cover;
@@ -312,8 +273,3 @@ video{
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.25);
 }
-
-.borda{
-    border: 5px solid red;
-}
-  
