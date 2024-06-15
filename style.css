@@ -268,9 +268,8 @@ option{
 .total-form{
     max-width: 400px;
     border: 2px solid gray;
-    padding: 5px;
     border-radius: 10px;
-    font-size: large;
+    font-size: 13px;
 }
 
 video{
@@ -290,4 +289,20 @@ video{
     h1{
         font-size: medium;
     }
+}
+
+#loader{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: #9E6849 white ;
+    animation: loader .8s linear reverse infinite;
+
+}
+
+@keyframes loader {
+    0% {rotate: 0;}
+    100% {rotate: 360deg;}
+    
 }
