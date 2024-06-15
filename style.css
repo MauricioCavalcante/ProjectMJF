@@ -269,7 +269,7 @@ option{
     max-width: 400px;
     border: 2px solid gray;
     border-radius: 10px;
-    font-size: 13px;
+    font-size: small;
 }
 
 video{
