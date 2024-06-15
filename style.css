@@ -5,6 +5,13 @@
 
 /* estilo pag inicial --------------------------------------------------------- */
 
+.borda{
+    border: 2px solid red;
+}
+
+main{
+    margin-bottom: 100px;
+}
 
 .container-topo{
 
@@ -40,16 +47,15 @@
 
 details{
     border: 1px solid #ccc;
-
+    
     & p{
         border-left: 3px solid gray;
         padding: 5px;
+        margin-left: 3.5px;
     }
     
 }
-details::after{
-    transition: all 3s;
-}
+
 
 .button-home{
     display: flex;
@@ -60,16 +66,18 @@ details::after{
     color: white;
     border-radius: 30px;
     padding: 8px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3)
 }
 
 .button-home:hover{
     background: #794f37;
     color: white;
+    scale: 1.05;
 }
 
 .carousel{
     max-width: 500px;
-    display: flexbox;
     height: 440px;
 
     & .carousel-prev{
@@ -84,13 +92,9 @@ details::after{
     & .carousel-ind{
         bottom: -40px;
     }
-
-    & .grid{
-        max-width: 1000px;
-    }
-
     & .grid-item{
-        border: 2px solid #52504f;
+        border: 2px solid #706661;
+        box-shadow:50px 50px inset gray;
     }
 }
 
@@ -150,11 +154,14 @@ details::after{
         border-radius: 30px;
         padding: 8px;
         margin-bottom: 60px;
+        transition: 0.3s ease-in-out;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3)
     }
 
     & .button-form:hover{
         background: #794f37;
         color: white;
+        scale: 1.05;
     }
 
 }
@@ -273,4 +280,14 @@ video{
     border-radius: 10px;
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.25);
+}
+
+.tocofobia{
+    max-width: 600px;
+    font-size: small;
+    justify-content: center;
+    
+    h1{
+        font-size: medium;
+    }
 }
