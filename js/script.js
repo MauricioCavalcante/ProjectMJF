@@ -19,7 +19,10 @@ radioNao.addEventListener('change', function() {
     }
 });
 
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec';
+
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
+let numeroFormulariosEnviados = 8826;
 
 document.getElementById('meuFormulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
@@ -29,8 +32,6 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         return; // Sai da função se o formulário já foi enviado
     }
 
-    enviado = true; // Marca o formulário como enviado
-
     // Retira o formulário
     var principal = document.getElementById('principal');
     var final = document.getElementById('final');
@@ -38,7 +39,6 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     final.style.display = 'block';
 
     // Mostra uma mensagem de envio
-    
     var mensagem = document.getElementById('mensagem');
     var contagem = document.getElementById('numeroLinhas');
     mensagem.textContent = 'Enviando formulário...';
@@ -51,9 +51,14 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         body: formData
     }).then(response => {
         if (response.ok) {
-            mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
-            // Após o envio bem-sucedido, atualiza o número de linhas
+            // Incrementa o número de formulários enviados
+            numeroFormulariosEnviados++;
+
+            // Atualiza o número de linhas após o envio bem-sucedido
             atualizarNumeroLinhas();
+
+            // Mostra mensagem de sucesso
+            mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
         } else {
             mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
             // Adiciona detalhes específicos do erro, se disponível
@@ -84,7 +89,9 @@ function atualizarNumeroLinhas() {
         })
         .then(count => {
             var contagem = document.getElementById('numeroLinhas');
-            contagem.textContent = `Total de formulários enviados até o momento: ${count}`;
+            // Atualiza a contagem exibida na página com o número atualizado de formulários enviados
+            numeroFormulariosEnviados = parseInt(count); // Atualiza o número de formulários enviados com o valor obtido da planilha
+            contagem.textContent = `Total de formulários enviados até o momento: ${numeroFormulariosEnviados}`;
         })
         .catch(error => {
             console.error('Erro ao obter número de linhas:', error);

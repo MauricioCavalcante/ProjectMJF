@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <section class="container-topo-form mb-2"> <!-- seçao topo ------------------------------------------------------->
-    <div class="imagem-topo-dark-form">
-      <div class="imagem-topo-logo-form">
-        <img src="./imagens/logo-white.png" class="imagem-topo-form" alt="logo-maju">
+  <header>
+    <section class="container-topo-form mb-2">
+      <div class="imagem-topo-dark-form">
+        <div class="imagem-topo-logo-form">
+          <img src="./imagens/logo-white.png" class="imagem-topo-form" alt="logo-maju">
+        </div>
       </div>
-    </div>
-  </section>
-
-   <!-- seçao texto ------------------------------------------------------->
+    </section>
+  </header>
 
   <main id="principal">
     <section class="container-fluid container-box mt-1"> 
@@ -33,7 +32,7 @@
     </section>
 
     <section class="container-fluid container-form p-4">
-      <form id="meuFormulario" action="https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec" method="post">
+      <form id="meuFormulario" action="" method="post">
         
         <div class="form-floating mb-3">
           <input type="text" name="nome" class="form-control" id="floatingName" placeholder="Nome">
@@ -121,19 +120,25 @@
       </form>
     </section>
   </main>
-  
 
   <section class="container-fluid text-center p-4" id="final" style="display: none;">
     <div class="m-2" id="mensagem"></div>
-    <div class="total-form me-auto ms-auto" id="numeroLinhas" ></div>
-    <div class="mt-4"><p>Não esquece de ver esse vídeo que preparei para você.</p></div>
+    <div class="mt-4"><p>Não esquece de ver esse vídeo que preparei para você. ❤️</p></div>
     <div class="mt-2"><video src="arquivos/video-MJ.mp4" controls></video></div>
+    <div class="total-form me-auto ms-auto mt-4" id="numeroLinhas" ></div>
+    <div  class="mt-5 me-auto ms-auto text-start tocofobia">
+      <h1>TENHO TOCOFOBIA</h1>
+      <p>Se a razão pela qual você entrou na lista de espera é tocofobia, 
+      muito medo de engravidar ou insegurança em relação a métodos contraceptivos e gravidez, 
+      <a href="https://hotm.art/e572Qh7A">clique aqui</a>, tendo em vista o tempo necessário para ser chamada, por vezes, na lista de espera.</p></div>
   </section>
 
   <script src="./js/script.js"></script>
   <script src="./js/mask.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
+  <script>
+    document.getElementById('meuFormulario').action = formularioActionURL;
+  </script>
 </body>
 </html>
 
