@@ -1,25 +1,5 @@
-// script formulário urgência ------------------------------------------------------------------
 
-var radioSim = document.getElementById('opcaoSim');
-var radioNao = document.getElementById('opcaoNao');
-var caixaTexto = document.getElementById('caixaTexto');
-var labelTexto = document.getElementById('textoUrgencia');
-
-radioSim.addEventListener('change', function() {
-    if (this.checked) {
-    caixaTexto.style.display = 'block'; // Mostra a caixa de texto se "Sim" estiver marcado
-    labelTexto.style.display = 'block';
-    }
-});
-
-radioNao.addEventListener('change', function() {
-    if (this.checked) {
-    caixaTexto.style.display = 'none'; // Oculta a caixa de texto se "Não" estiver marcado
-    labelTexto.style.display = 'none';
-    }
-});
-
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbxnD014g_iqp1TfaaWRE_XobIOyzfaf-4q9ImL9WTtqZ7j85t1KGTrNLYGDXx_-kN1X/exec';
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 let numeroFormulariosEnviados = 8826;
@@ -46,7 +26,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxnD014g_iqp1TfaaWRE_XobIOyzfaf-4q9ImL9WTtqZ7j85t1KGTrNLYGDXx_-kN1X/exec', {
         method: 'POST',
         body: formData
     }).then(response => {
