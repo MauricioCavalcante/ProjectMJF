@@ -100,19 +100,9 @@
           </div>
         </div>
         <div class="mt-4">
-          <label for="type">Você deseja colocar alguma observação sobre o motivo da sua consulta?</label><br>
-          <div class="container-radio p-2">
-              <label class="mt-1 mb-1">
-                <input type="radio" id="opcaoSim" name="urgente" value="Sim" class="radio-input" required>
-                <span>Sim</span>
-              </label>
-              <label class="mt-1 mb-1">
-                <input type="radio" id="opcaoNao" name="urgente" value="Não" class="radio-input" required>
-                <span>Não</span>
-              </label>
+          <label for="type">Deixe aqui um pequeno resumo do por quê você gostaria de uma consulta.</label><br>
+            <textarea class="text-area form-control mt-1" name="motivoConsulta" placeholder="Escreva em poucas palavras o motivo." id="caixaTexto"></textarea>
           </div>
-          <label for="textarea" id="textoUrgencia" style="display: none;"></label>
-          <textarea class="text-area form-control mt-2" name="motivoUrgencia" placeholder="Escreva em poucas palavras o motivo." id="caixaTexto" style="display: none;"></textarea>
           
           <div class="d-flex justify-content-center mt-4">
             <button type="submit" class="button-form mb-0">ENTRAR NA LISTA DE ESPERA</button>
