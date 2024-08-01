@@ -1,5 +1,5 @@
 
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbzLlYOn0lrkzKqokz8V-LG4HVsuF3qnixDIgpxz4myflTqsFz7rI-75c0OYRxCpHqXx/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbz0OIGrhccCaXv60b_E--wAkXSw9f_HZXqSV9-BmkUhfPNtyiImg4GoNjH9cDr1A8or/exec';
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 let numeroFormulariosEnviados = 8826;
@@ -26,7 +26,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbzLlYOn0lrkzKqokz8V-LG4HVsuF3qnixDIgpxz4myflTqsFz7rI-75c0OYRxCpHqXx/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbz0OIGrhccCaXv60b_E--wAkXSw9f_HZXqSV9-BmkUhfPNtyiImg4GoNjH9cDr1A8or/exec', {
         method: 'POST',
         body: formData
     }).then(response => {
