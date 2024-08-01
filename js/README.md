@@ -1,0 +1,1 @@
+<p align="center"><a href="https://majuferreira.com" target="_blank"><img src="https://github.com/MauricioCavalcante/ProjectMJF/blob/main/imagens/logo-black.png" width="400" alt="Laravel Logo"></a></p>
