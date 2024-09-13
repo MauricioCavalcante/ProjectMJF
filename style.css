@@ -306,3 +306,7 @@ video{
     100% {rotate: 360deg;}
     
 }
+
+#principal a {
+    text-decoration: none;
+}
