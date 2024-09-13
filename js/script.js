@@ -2,7 +2,7 @@
 const formularioActionURL = 'https://script.google.com/macros/s/AKfycbwVwxSvlWho4uxk57T2cOP2yDx7KBbUjcpy10n7tT2QE4x72no1tqa6LxPYzDIkyARs/exec';
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
-let numeroFormulariosEnviados = 8826;
+let numeroFormulariosEnviados = 10850;
 
 document.getElementById('meuFormulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
