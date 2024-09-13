@@ -1,8 +1,4 @@
-
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbwVwxSvlWho4uxk57T2cOP2yDx7KBbUjcpy10n7tT2QE4x72no1tqa6LxPYzDIkyARs/exec';
-
-var enviado = false; // Variável para rastrear se o formulário já foi enviado
-let numeroFormulariosEnviados = 10850;
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbzZjlKdSbpMpl7NW1l8HqgtIelYtfzDfzIeGNbFhwTzJWMXbGj0eOsjgs37pmWOVV0M/exec';
 
 document.getElementById('meuFormulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
@@ -31,9 +27,6 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
         body: formData
     }).then(response => {
         if (response.ok) {
-            // Incrementa o número de formulários enviados
-            numeroFormulariosEnviados++;
-
             // Atualiza o número de linhas após o envio bem-sucedido
             atualizarNumeroLinhas();
 
@@ -83,5 +76,3 @@ function atualizarNumeroLinhas() {
             console.error('Erro ao obter número de linhas:', error);
         });
 }
-
-
