@@ -1,4 +1,4 @@
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbz9gZCBFURKZIgRJkuxEFc3XxCRI_65Ggd0_biZ-84gLvgOz0JD5hhSl69d8Z_lew0z/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbz4gAqd7-xaNZnS2wQwpqultS7x4CMLZ8AaSslz-EwdRbZUa9jurm4rFtA3xSCVAvmJ/exec';
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 
