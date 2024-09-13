@@ -1,5 +1,5 @@
 
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbz0OIGrhccCaXv60b_E--wAkXSw9f_HZXqSV9-BmkUhfPNtyiImg4GoNjH9cDr1A8or/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbwVwxSvlWho4uxk57T2cOP2yDx7KBbUjcpy10n7tT2QE4x72no1tqa6LxPYzDIkyARs/exec';
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 let numeroFormulariosEnviados = 8826;
@@ -26,7 +26,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
     // Envia os dados do formulário para o Google Apps Script usando Fetch API
     var formData = new FormData(this);
-    fetch('https://script.google.com/macros/s/AKfycbz0OIGrhccCaXv60b_E--wAkXSw9f_HZXqSV9-BmkUhfPNtyiImg4GoNjH9cDr1A8or/exec', {
+    fetch(formularioActionURL, {
         method: 'POST',
         body: formData
     }).then(response => {
@@ -59,21 +59,29 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
 
 // Função para atualizar o número de linhas na planilha
 function atualizarNumeroLinhas() {
-    fetch('https://script.google.com/macros/s/AKfycbxybaLNJU7yDbsHNTVLSH90LOs3yQWg_7rITjhD_UIOWtZVS_bLDXHfaFsl_SgInQI/exec?rowCount=true')
+    fetch(formularioActionURL)
         .then(response => {
             if (response.ok) {
-                return response.text();
+                return response.json(); // Processa a resposta JSON
             } else {
                 throw new Error('Erro ao obter número de linhas');
             }
         })
-        .then(count => {
+        .then(data => {
             var contagem = document.getElementById('numeroLinhas');
-            // Atualiza a contagem exibida na página com o número atualizado de formulários enviados
-            numeroFormulariosEnviados = parseInt(count); // Atualiza o número de formulários enviados com o valor obtido da planilha
+            var contagemMensal = document.getElementById('formularioMensal');
+
+            // Atualiza a contagem exibida na página com o número total de linhas
+            var numeroFormulariosEnviados = data.totalLines;
             contagem.textContent = `Total de formulários enviados até o momento: ${numeroFormulariosEnviados}`;
+
+            // Atualiza a contagem de linhas dos últimos 30 dias
+            var formularioMensal = data.linesLast30Days;
+            contagemMensal.textContent = `Total de formulários enviados nos últimos 30 dias: ${formularioMensal}`;
         })
         .catch(error => {
             console.error('Erro ao obter número de linhas:', error);
         });
 }
+
+
