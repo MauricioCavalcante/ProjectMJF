@@ -1,4 +1,6 @@
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbzZjlKdSbpMpl7NW1l8HqgtIelYtfzDfzIeGNbFhwTzJWMXbGj0eOsjgs37pmWOVV0M/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbz9gZCBFURKZIgRJkuxEFc3XxCRI_65Ggd0_biZ-84gLvgOz0JD5hhSl69d8Z_lew0z/exec';
+
+var enviado = false; // Variável para rastrear se o formulário já foi enviado
 
 document.getElementById('meuFormulario').addEventListener('submit', function(event) {
     event.preventDefault(); // Impede o envio padrão do formulário
@@ -34,7 +36,6 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
             mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
         } else {
             mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
-            // Adiciona detalhes específicos do erro, se disponível
             response.text().then(errorMessage => {
                 console.error('Erro ao enviar o formulário:', errorMessage);
             }).catch(error => {
@@ -50,7 +51,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function(eve
     });
 });
 
-// Função para atualizar o número de linhas na planilha
+// Função para atualizar o número total de linhas na planilha
 function atualizarNumeroLinhas() {
     fetch(formularioActionURL)
         .then(response => {
@@ -65,12 +66,10 @@ function atualizarNumeroLinhas() {
             var contagemMensal = document.getElementById('formularioMensal');
 
             // Atualiza a contagem exibida na página com o número total de linhas
-            var numeroFormulariosEnviados = data.totalLines;
-            contagem.textContent = `Total de formulários enviados até o momento: ${numeroFormulariosEnviados}`;
+            contagem.textContent = `Total de formulários enviados até o momento: ${data.totalLines}`;
 
             // Atualiza a contagem de linhas dos últimos 30 dias
-            var formularioMensal = data.linesLast30Days;
-            contagemMensal.textContent = `Total de formulários enviados nos últimos 30 dias: ${formularioMensal}`;
+            contagemMensal.textContent = `Total de formulários enviados nos últimos 30 dias: ${data.linesLast30Days}`;
         })
         .catch(error => {
             console.error('Erro ao obter número de linhas:', error);
