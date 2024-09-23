@@ -1,5 +1,5 @@
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbx483Hqp-tX---Q_JAjeBic0czfru3EkrJQf7UM48DY4Z0lo8SSef5Wybe5StUBjxzo/exec';
-const atualizarLinhas = 'https://script.google.com/macros/s/AKfycbytLJ-0huo_LxCD6rfdpE3JAh_sRPVIQUb1pAh0ACgMHO_bD5J6sMB9mzH4Pfv7WhzS/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbwlGsPTt0EcdKhc-hqhEuL6OJRb3B5-fiPIrAzjW-Ze1GsoWNHKDloEa6Ho28pi-44j/exec';
+const atualizarLinhas = 'https://script.google.com/macros/s/AKfycbz8I2zb28fQUd-QPAaCrzEGZCFI_4KCW_eu2JfPJItijUTjL9FxGrU1we87YYBhM6PN/exec'; // (DEV)
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 
@@ -74,10 +74,10 @@ function atualizarNumeroLinhas() {
             var contagemMensal = document.getElementById('formularioMensal');
 
             // Atualiza a contagem exibida na página com o número total de linhas
-            contagem.textContent = `Total de formulários enviados até o momento: ${data.totalLines}`;
+            contagem.textContent = `Total de formulários enviados até o momento: ${data.totalRowCount}`;
 
             // Atualiza a contagem de linhas dos últimos 30 dias
-            contagemMensal.textContent = `Total de formulários enviados nos últimos 30 dias: ${data.linesLast30Days}`;
+            contagemMensal.textContent = `Total de formulários enviados nos últimos 30 dias: ${data.recentRowCount}`;
         })
         .catch(error => {
             console.error('Erro ao obter número de linhas:', error);
