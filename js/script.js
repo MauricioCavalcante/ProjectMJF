@@ -1,4 +1,4 @@
-const formularioActionURL = 'https://script.google.com/macros/s/AKfycbwosxJ4vVvfH9d8PTGQVAenEZMuswWS3h5EyCVRP1uqM77BlXcOiJ_7rNx65u8Jkv4C/exec';
+const formularioActionURL = 'https://script.google.com/macros/s/AKfycbzXFjmjL6OeBShPuCqNMMvgjgj07QCDAaCqAwoIom-J3B_kt3vC3oTWhHOi7FsyWLDM/exec';
 const atualizarLinhas = 'https://script.google.com/macros/s/AKfycbz8I2zb28fQUd-QPAaCrzEGZCFI_4KCW_eu2JfPJItijUTjL9FxGrU1we87YYBhM6PN/exec'; // (DEV)
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
@@ -40,6 +40,7 @@ function enviarFormulario() {
         if (response.ok) {
             // Se o envio foi bem-sucedido
             mensagem.textContent = 'Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!';
+
         } else {
             // Se houve um erro no envio
             mensagem.textContent = 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.';
@@ -83,3 +84,4 @@ function atualizarNumeroLinhas() {
             console.error('Erro ao obter número de linhas:', error);
         });
 }
+
