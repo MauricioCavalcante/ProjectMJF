@@ -1,5 +1,5 @@
 const formularioActionURL = 'https://script.google.com/macros/s/AKfycbzXFjmjL6OeBShPuCqNMMvgjgj07QCDAaCqAwoIom-J3B_kt3vC3oTWhHOi7FsyWLDM/exec';
-const atualizarLinhas = 'https://script.google.com/macros/s/AKfycbz8I2zb28fQUd-QPAaCrzEGZCFI_4KCW_eu2JfPJItijUTjL9FxGrU1we87YYBhM6PN/exec'; // (DEV)
+const atualizarLinhas = 'https://script.google.com/macros/s/AKfycbx-iqaKTlVJ6kjL8-7kZdgVD2dAzfsioF3WCqdsYN6ucPdVwZhWmJ6iatle2wCxNRlb/exec';
 
 var enviado = false; // Variável para rastrear se o formulário já foi enviado
 
