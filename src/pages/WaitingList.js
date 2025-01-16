@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormComponent from "../components/Formulario";
+import Formulario from "../components/Formulario";
 import FinalSection from "../components/FinalSection";
 
 const WaitingList = () => {
@@ -65,7 +65,7 @@ const WaitingList = () => {
             Médica <br />
             CRM-DF 31351
           </p>
-        <FormComponent onSubmit={handleFormSubmit} />
+        <Formulario  onSubmit={handleFormSubmit} />
         </section>
         <section id="finalSection" style={{ display: isFormSubmitted ? 'block' : 'none' }}>
           <FinalSection />
