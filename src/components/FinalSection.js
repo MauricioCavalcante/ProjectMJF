@@ -48,7 +48,7 @@ const FinalSection = () => {
         </p>
       </div>
       <div className="mt-2">
-        <video src="archives/lista-de-espera.mp4" controls></video>
+        <video src="/archives/lista-de-espera.mp4" controls></video>
       </div>
       <div className="total-form me-auto ms-auto mt-4 p-2" id="numeroLinhas">
         <p>Total de formulários enviados até o momento:</p>
