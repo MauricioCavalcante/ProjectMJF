@@ -1,4 +1,4 @@
-<p align="center"><a href="https://majuferreira.com" target="_blank"><img src="https://github.com/MauricioCavalcante/ProjectMJF/blob/main/imagens/readme-image.png" width="400" alt="Maju Logo"></a></p>
+<p align="center"><a href="https://majuferreira.com" target="_blank" ><img src="https://github.com/MauricioCavalcante/ProjectMJF/blob/main/imagens/readme-image.png" width="400" alt="Maju Logo"></a></p>
 
 # Maju Ferreira | Consultas
 
