@@ -66,6 +66,7 @@ const WaitingList = () => {
             CRM-DF 31351
           </p>
         <Formulario  onSubmit={handleFormSubmit} />
+        <FinalSection />
         </section>
         <section id="finalSection" style={{ display: isFormSubmitted ? 'block' : 'none' }}>
           <FinalSection />

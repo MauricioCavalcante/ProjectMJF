@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const COUNT_LINES_URL = 'https://script.google.com/macros/s/AKfycbwM3xEzaqwu-kQUBw7SwNLlfr4gHWzXHFI-F7bXo1XWOprGODG5Msmv5XEzK3uG3UDJ/exec';
+const COUNT_LINES_URL = process.env.REACT_APP_TOTAL_FORM;
 
 const FinalSection = () => {
   const [isLoading, setIsLoading] = useState(true);
