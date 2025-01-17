@@ -1,4 +1,4 @@
-<p align="center"><a href="https://majuferreira.com" target="_blank"><img src="https://github.com/MauricioCavalcante/ProjectMJF/blob/main/imagens/readme-image.png" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://majuferreira.com" target="_blank" rel="noopener noreferrer"><img src="https://github.com/MauricioCavalcante/ProjectMJF/blob/main/imagens/readme-image.png" width="400" alt="Maju Logo"></a></p>
 
 # Maju Ferreira | Consultas
 
@@ -41,3 +41,6 @@ Este projeto consiste em um site para Maju Ferreira, focado na gestão de consul
 - JavaScript: Funcionalidade de formulário e manipulação de DOM.
 - Google Apps Script: Processamento de dados e envio de e-mails.
 - Bootstrap: Framework CSS para design responsivo.
+
+## Funcionalidade do Projeto
+
