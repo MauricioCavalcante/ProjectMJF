@@ -233,6 +233,8 @@ const GlobalStyles = createGlobalStyle`
 
   video {
     max-width: 400px;
+    width: 100%;
+    height: auto;
     animation: animar-texto 2s forwards, animar-opacidade 2s forwards;
     border: 2px solid gray;
     border-radius: 10px;
