@@ -318,7 +318,7 @@ const Formulario = () => {
                 }
                 onChange={handleChange}
               />
-              <span>Endometriose | adenomiose</span>
+              <span>Emagrecimento | obesidade</span>
             </label>
             <label className="mt-1 mb-1">
               <input
