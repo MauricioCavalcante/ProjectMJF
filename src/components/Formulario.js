@@ -310,6 +310,20 @@ const Formulario = () => {
               <input
                 type="radio"
                 name="motivoAtendimento"
+                value="Emagrecimento | obesidade"
+                className="radio-input"
+                required
+                checked={
+                  formData.motivoAtendimento === "Emagrecimento | obesidade"
+                }
+                onChange={handleChange}
+              />
+              <span>Endometriose | adenomiose</span>
+            </label>
+            <label className="mt-1 mb-1">
+              <input
+                type="radio"
+                name="motivoAtendimento"
                 value="Outro"
                 className="radio-input"
                 required
