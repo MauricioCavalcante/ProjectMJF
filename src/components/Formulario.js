@@ -40,30 +40,37 @@ const Formulario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     document.getElementById("principal").style.display = "none";
     document.getElementById("finalSection").style.display = "block";
     document.getElementById("mensagem").textContent = "Enviando...";
-
+  
     const formDataToSend = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       formDataToSend.append(key, value);
     });
-
+  
     const FORM_ACTION_URL = process.env.REACT_APP_FORM_ACTION;
-     // Fromulário React
-
+  
     try {
       // Envia os dados para o Google Sheets
       const response = await fetch(FORM_ACTION_URL, {
         method: "POST",
         body: formDataToSend,
       });
-
-      if (response.ok) {
+  
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        console.warn("A resposta não é um JSON válido:", jsonError);
+      }
+  
+      if (response.ok && data?.status === "success") {
+        // Envia o email de agradecimento
         const brevoKey = process.env.REACT_APP_BREVO_KEY;
         const brevoUrl = "https://api.brevo.com/v3/smtp/email";
-
+  
         const emailPayload = {
           sender: { email: "majuferreira.site@gmail.com", name: "MajuFerreira.com" },
           to: [{ email: formData.email, name: formData.nome }],
@@ -71,8 +78,8 @@ const Formulario = () => {
           htmlContent: `
             <html>
               <body>
-                <div style="font-family: Arial, sans-serif;  color: #333;">
-                  <p style="font-size: 18px; font-weight: bold;	color: #794f37;	margin-bottom: 20px;">
+                <div style="font-family: Arial, sans-serif; color: #333;">
+                  <p style="font-size: 18px; font-weight: bold; color: #794f37; margin-bottom: 20px;">
                     Seu cadastro foi recebido com sucesso!
                   </p>
                   <p>Oi, <strong>${formData.nome}</strong>!</p>
@@ -86,51 +93,46 @@ const Formulario = () => {
                     chamada, porque isso depende do número de cadastros no mês, número de
                     agendamentos, minha disponibilidade, etc!
                   </p>
-                  <p>
-                    Se for: 
+                  <p>Se for: 
                     <ul>
-                        <li>Urgente</li>
-                        <li>Inserção de Implanon</li>
-                        <li>Inserção de DIU</li>
-                        <li>Inserção em São Paulo</li>
+                      <li>Urgente</li>
+                      <li>Inserção de Implanon</li>
+                      <li>Inserção de DIU</li>
+                      <li>Inserção em São Paulo</li>
                     </ul>
-                    </p>
-                <p>
-                    Sinta-se a vontade para avisar a 
-                    <a
-                      href="https://www.instagram.com/marisecretariavirtual/"
-                      target="_blank"
-                      >@marisecretariavirtual</a
-                    > no
-                    direct do instagram pra gente tentar um encaixe. 
-                </p>
-                <p>Espero você comigo ❤️</p>
+                  </p>
+                  <p>
+                    Sinta-se à vontade para avisar a 
+                    <a href="https://www.instagram.com/marisecretariavirtual/" target="_blank">
+                      @marisecretariavirtual
+                    </a> no direct do Instagram pra gente tentar um encaixe.
+                  </p>
+                  <p>Espero você comigo ❤️</p>
                   <p style="font-size: 14px; color: #666; margin-top: 40px;">
                     Este é um e-mail automático. Por favor, não responda.
                   </p>
-              </div>
+                </div>
               </body>
             </html>
           `,
         };
-
+  
         await axios.post(brevoUrl, emailPayload, {
           headers: {
             "api-key": brevoKey,
             "Content-Type": "application/json",
           },
         });
-
+  
         document.getElementById("mensagem").textContent =
           "Obrigada! Seu formulário foi enviado com sucesso, em breve a Mari vai te chamar!";
       } else {
-        const errorMessage = await response.text();
-        console.error("Erro ao enviar o formulário:", errorMessage);
+        console.warn("Resposta inesperada do servidor:", data);
         document.getElementById("mensagem").textContent =
-          "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.";
+          "Seu formulário foi enviado. Caso não receba confirmação por e-mail, tente novamente.";
       }
     } catch (error) {
-      console.error("Erro:", error);
+      console.error("Erro ao enviar o formulário:", error);
       document.getElementById("mensagem").textContent =
         "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.";
     } finally {
@@ -139,6 +141,7 @@ const Formulario = () => {
       }
     }
   };
+  
 
   
 
