@@ -12,7 +12,7 @@ exports.handler = async (event) => {
   try {
     const data = JSON.parse(event.body);
 
-    const brevoKey = process.env.BREVO_KEY;
+    const brevoKey = process.env.REACT_APP_BREVO_KEY;
 
     if (!brevoKey) {
       throw new Error("Chave da API da Brevo não encontrada");
