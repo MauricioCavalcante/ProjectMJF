@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Formulario from "../components/Formulario";
 import FinalSection from "../components/FinalSection";
+import logoWhite from '../assets/imagens/logo-white.png';
 
 const WaitingList = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -17,8 +18,8 @@ const WaitingList = () => {
         <section className="container-topo-form mb-2">
           <div className="imagem-topo-dark-form">
             <div className="imagem-topo-logo-form">
-              <img
-                src="./imagens/logo-white.png"
+            <img
+                src={logoWhite}
                 className="imagem-topo-form"
                 alt="logo-maju"
               />

@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import imagem3 from '../assets/imagens/imagem-3.jpeg';
+import imagem1 from '../assets/imagens/imagem-1.jpeg';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -15,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     height: 200px;
     background-size: cover;
     background-position: 50% 40%;
-    background-image: url('./imagens/imagem-3.jpeg');
+    background-image: url(${imagem3});
     filter: brightness(90%);
     & img {
       opacity: 0;
@@ -91,7 +93,7 @@ const GlobalStyles = createGlobalStyle`
     height: 150px;
     background-size: cover;
     background-position: center;
-    background-image: url('./imagens/imagem-1.jpeg');
+    background-image: url(${imagem1});
   }
 
   .imagem-topo-dark-form {
